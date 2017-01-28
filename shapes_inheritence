@@ -1,0 +1,105 @@
+//: Playground - noun: a place where people can play
+
+//import UIKit
+
+public class ShapeProperties
+{
+let rectangleLength :Float = 5
+let rectangleBreadth :Float = 5
+let squareSide :Float = 5
+let pi:Float = 3.14
+let radius:Float=5
+let height:Float=5
+}
+
+
+class Rectangle : ShapeProperties
+{
+    init(length : Float , breadth : Float)
+    {
+        print("Area of rectangle is \(length*breadth)")
+        print("Perimeter of rectangle is \(2*(length+breadth)) \n")
+    }
+    
+}
+
+class Square : ShapeProperties
+{
+    init(side: Float)
+    {
+        print("Area of Square is \(side*side)")
+        print("Perimeter of Square is \(4*side)\n")
+    }
+}
+
+
+class Circle : ShapeProperties
+{
+    init(radius : Float)
+    {
+        super.init()
+        print("area of circle is \(pi*radius*radius)")
+        print("Perimeter of circle is \(2*pi*radius)\n")
+    }
+}
+
+class Sphere : ShapeProperties
+{
+    init(radius : Float)
+    {
+        super.init()
+        print("surface area of sphere is \(4*pi*radius*radius)")
+        print("volume of sphere is \((4/3)*pi*radius*radius*radius)\n")
+    }
+}
+
+class Cylinder : ShapeProperties
+{
+    init(radius: Float, height: Float)
+    {
+        super.init()
+        let temp=height+radius
+        print("surface area of cylinder is \(2*pi*radius*temp)")
+        print("volume of cylinder is \(pi*radius*radius*height)\n")
+    }
+}
+
+class main : ShapeProperties
+{
+enum shapes: String
+{
+    case Rectangle,Square,Circle,Sphere,Cylinder
+    
+    static let allValues = [Rectangle,Square,Circle,Sphere,Cylinder]
+}
+func main()
+{
+    
+    for item in shapes.allValues
+    {
+    var shape = item
+    
+    switch shape
+    {
+    case shapes.Rectangle:
+        let instanceOfRectangle = Rectangle(length: rectangleLength,breadth: rectangleBreadth)
+    case shapes.Square:
+        let instanceOfSquare = Square(side:squareSide)
+    case shapes.Circle:
+        let instanceOfCircle = Circle(radius: radius)
+    case shapes.Sphere:
+        let instanceOfSphere = Sphere(radius: radius)
+    case shapes.Cylinder:
+        let instanceOfCylinder = Cylinder(radius: radius,height: height)
+        
+        
+    //default:
+        //  print("wrong input")
+    
+        }
+  }
+}
+    
+}
+let instanceOfShapeProperties = main()
+print((instanceOfShapeProperties.main()))
